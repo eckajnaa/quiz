@@ -26,10 +26,10 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  QuizBrain quizBrain = QuizBrain();          // 👈 moved here
-  List<Icon> scoreKeeper = [];                // 👈 moved here
+  QuizBrain quizBrain = QuizBrain();       
+  List<Icon> scoreKeeper = [];                
 
-  void checkAnswer(bool userPickedAnswer) {   // 👈 now a method of the State
+  void checkAnswer(bool userPickedAnswer) {   
     bool correctAnswer = quizBrain.getCorrectAnswer();
 
     setState(() {
@@ -40,7 +40,7 @@ class _QuizPageState extends State<QuizPage> {
       }
 
       if (quizBrain.isFinished()) {
-        // Optionally show an alert here, then reset
+        
         quizBrain.reset();
         scoreKeeper = [];
       } else {
@@ -61,7 +61,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.getQuestionText(),   // 👈 now using QuizBrain
+                quizBrain.getQuestionText(),   
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -86,7 +86,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer(true);   // 👈 user picked true
+                checkAnswer(true);   
               },
             ),
           ),
@@ -106,12 +106,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer(false);  // 👈 user picked false
+                checkAnswer(false);  
               },
             ),
           ),
         ),
-        Row(                     // 👈 score keeper row
+        Row(                    
           children: scoreKeeper,
         ),
       ],
